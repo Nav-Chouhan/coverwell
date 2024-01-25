@@ -9,7 +9,7 @@
 return [
     // Define the size/looks of the content div for all CRUDs
     // To override per view use $this->crud->setCreateContentClass('class-string')
-    'contentClass' => 'col-md-12 bold-labels',
+    'contentClass' => 'col-md-8 bold-labels',
 
     // When using tabbed forms (create & update), what kind of tabs would you like?
     'tabsType' => 'horizontal', //options: horizontal, vertical
@@ -34,7 +34,7 @@ return [
 
     // Should we warn a user before leaving the page with unsaved changes?
     'warnBeforeLeaving' => false,
-
+'saveAllInputsExcept' => false,
     // Before saving the entry, how would you like the request to be stripped?
     //  - false - use Backpack's default (ONLY save inputs that have fields)
     //  - invokable class - custom stripping (the return should be an array with input names)

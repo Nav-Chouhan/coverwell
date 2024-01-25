@@ -19,7 +19,7 @@ class VisitorCategory extends Model
 
     protected $table = 'visitor_categories';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = true;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];

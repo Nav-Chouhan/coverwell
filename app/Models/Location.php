@@ -17,7 +17,7 @@ class Location extends Model
 
     protected $table = 'locations';
     // protected $primaryKey = 'id';
-    public $timestamps = false;
+    public $timestamps = true;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];

@@ -36,3 +36,8 @@
 <x-backpack::menu-item title="Visitors" icon="la la-question" :link="backpack_url('visitor')" />
 <x-backpack::menu-item title="Hotels" icon="la la-question" :link="backpack_url('hotel')" />
 <x-backpack::menu-item title="Locations" icon="la la-question" :link="backpack_url('location')" />
+<x-backpack::menu-item title="Durations" icon="la la-question" :link="backpack_url('duration')" />
+<x-backpack::menu-item title="Professions" icon="la la-question" :link="backpack_url('profession')" />
+<x-backpack::menu-item title="Invites" icon="la la-question" :link="backpack_url('invite')" />
+<x-backpack::menu-item title="Cities" icon="la la-question" :link="backpack_url('city')" />
+<x-backpack::menu-item title="States" icon="la la-question" :link="backpack_url('state')" />

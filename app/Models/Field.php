@@ -19,7 +19,7 @@ class Field extends Model
 
     protected $table = 'fields';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = true;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];

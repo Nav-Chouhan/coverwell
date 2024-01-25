@@ -25,7 +25,9 @@ class HotelRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+             'address' => 'required|min:5|max:255',
+             'room_initials_no'=> 'required|min:1|max:255',
+             'room_current_no'=> 'required|min:1|max:255',
         ];
     }
 

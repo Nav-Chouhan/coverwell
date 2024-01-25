@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('room_initials_no')->unique();
             $table->string('room_current_no')->unique();
             $table->boolean('status')->default(1)->comment(' 0 = deactivate,1 = active');
-            $table->integer('created_by')->unsigned();
+            $table->integer('created_by')->unsigned()->nullable();
             $table->integer('updated_by')->unsigned()->nullable();
             
             $table->timestamps();

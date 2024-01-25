@@ -332,7 +332,7 @@ class Visitor extends Model
 
     public function company()
     {
-        return $this->belongsTo(Company::class, 'company_barcode', 'barcode', 'company_barcode');
+        return $this->belongsTo(Company::class, 'company_barcode');
     }
 
     public function category()

@@ -20,7 +20,7 @@ class Hotel extends Model
 
     protected $table = 'hotels';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = true;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];

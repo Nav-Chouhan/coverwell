@@ -39,7 +39,14 @@ class HotelCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        CRUD::column('id');
+        CRUD::column('name');
+        CRUD::column('city_id');
+        CRUD::column('state_id');
+        CRUD::column('country_id');
+        CRUD::column('address');
+        CRUD::column('room_initials_no');
+        CRUD::column('room_current_no');
 
         /**
          * Columns can be defined using the fluent syntax:
@@ -56,7 +63,12 @@ class HotelCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(HotelRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
+        CRUD::field('name');
+        CRUD::field('city_id');
+        CRUD::field('state_id');
+        CRUD::field('address');
+        CRUD::field('room_initials_no');
+        CRUD::field('room_current_no');
 
         /**
          * Fields can be defined using the fluent syntax:

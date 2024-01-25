@@ -29,16 +29,13 @@ class VisitorCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
     use \App\Http\Controllers\Admin\Operations\PrintOperation;
-    // use \App\Http\Controllers\Admin\Operations\HostOperation;
     use \App\Http\Controllers\Admin\Operations\ChbOperation;
     use \App\Http\Controllers\Admin\Operations\ReportOperation;
 
     use \Backpack\ReviseOperation\ReviseOperation;
-    // use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \App\Http\Controllers\Admin\Operations\ExportOperation;
     use \App\Http\Controllers\Admin\Operations\ImportOperation;
     use \App\Http\Controllers\Admin\Operations\BulkDeliveryOperation;
-    //use \App\Http\Controllers\Admin\Operations\SMSOperation;
 
 
     /**
@@ -100,21 +97,14 @@ class VisitorCrudController extends CrudController
             ],
         ];
 
-
         CRUD::column('barcode');
         CRUD::column('name');
         CRUD::column('photo')->type('image');
         CRUD::column('ticket_invite_code')->label('Invite');
-        //CRUD::column('photo');
-        //CRUD::column('idproof');
         CRUD::column('contact');
-        // CRUD::column('country');
-        //CRUD::column('email');
         CRUD::column('company_barcode')->type('select')->label('Company')->entity('company')->attribute('name')->model(App\Models\Company::class);
-        //CRUD::column('city');
         CRUD::column('category_id')->type('select')->label('Category')->entity('category')->attribute('name')->model(App\Models\VisitorCategory::class);
-        CRUD::column('hotel_id')->type('select')->label('Hotel')->entity('hotel')->attribute('name')->model(App\Models\Hotel::class);
- 
+        CRUD::column('hotel_id')->type('select')->label('Hotel')->entity('hotel')->attribute('name')->model(App\Models\Hotel::class); 
         CRUD::column('last_movement');
         CRUD::column('registered_on');
         CRUD::column('src');
@@ -324,79 +314,13 @@ class VisitorCrudController extends CrudController
                 'allows_null' => false,
                 'default' => 'one',
                 'wrapper' => ['class' => 'form-group col-md-3'],
-                // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
             ]);
             CRUD::field('departure_pnr')->label("Arrival PNR")->size(3);
             CRUD::field('departure_date_time')->size(3);
             CRUD::field('flight_train_name')->label("Flight/Train Name")->size(3);
             CRUD::field('flight_train_number')->label("Flight/Train Name")->size(3);
             CRUD::field('travel_ticket')->size(3)->type('upload')->upload(true);
-            /* CRUD::addField([   // Upload
-                'name' => 'travel_ticket',
-                'label' => 'Travel Ticket',
-                'type' => 'upload',
-                'upload' => true,
-                'wrapper' => ['class' => 'form-group col-md-3'],
-                // 'disk' => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
-                // optional:
-                // 'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URLs this will make a URL that is valid for the number of minutes specified
-            ]);
-            CRUD::addField([   // select_from_array
-                'name' => 'travel_by',
-                'class' => 'travel_by',
-                'label' => "Travel By",
-                'type' => 'select2_from_array',
-                'options' => [
-                    "Select Status",
-                    "flight" => "By Flight",
-                    "train" => "By Train"
-                ],
-                'allows_null' => false,
-                'default' => 'one',
-                'wrapper' => ['class' => 'form-group col-md-3'],
-                // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
-            ]);
-            // CRUD::field('iata_airline');
-            CRUD::addField([   // select_from_array
-                'name' => 'iata_airline',
-                'label' => "Airline",
-                'type' => 'select2_from_array',
-                'options' => config('global.airlineIATACodes'),
-                'allows_null' => false,
-                'default' => 'one',
-                'wrapper' => ['class' => 'form-group col-md-3'],
-                // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
-            ]);
-            CRUD::addField([   // select_from_array
-                'name' => 'iata_airport',
-                'label' => "Departure Airport",
-                'type' => 'select2_from_array',
-                'options' => config('global.airportIATACodes'),
-                'allows_null' => false,
-                'default' => 'one',
-                'wrapper' => ['class' => 'form-group col-md-3'],
-                // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
-            ]);
-            // CRUD::field('iata_airport');
-            CRUD::field('arrival_city_id')->size(3);
-            CRUD::field('departure_city_id')->size(3);
-            CRUD::field('check_in_date')->size(3);
-            CRUD::field('check_out_date')->size(3);
-            CRUD::field('arrival_date_time')->size(3);
-            CRUD::field('departure_date_time')->size(3);
-            CRUD::field('hotel_id')->size(3);
-            CRUD::field('room_number')->size(3);
-        
-            CRUD::addField([   // select_from_array
-                'name' => 'hospitality_status',
-                'label' => "Status",
-                'type' => 'select2_from_array',
-                'options' => config('global.hospitalityStatus'),
-                'allows_null' => false,
-                'default' => 'one',
-                'wrapper' => ['class' => 'form-group col-md-3'],
-                // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
-            ]); */
+            
         }
     }
 
@@ -423,7 +347,8 @@ class VisitorCrudController extends CrudController
             trans('backpack::crud.admin') => backpack_url('dashboard'),
             'Scan' => false,
         ];
-        return view('backpack::scan', $this->data);
+      
+        return view('backpack.theme-coreuiv2::scan', $this->data);
     }
 
     public function scan($barcode)
@@ -467,9 +392,6 @@ class VisitorCrudController extends CrudController
             [
                 'name' => 'photo',
                 'type' => 'image',
-                //'prefix' => 'uploads/photos/',
-                // 'height' => '30px',
-                // 'width' => '30px',
             ],
             [
                 'name' => 'idproof',
@@ -542,17 +464,19 @@ class VisitorCrudController extends CrudController
         $request = $this->crud->validateRequest();
         // update the row in the db
 
-        $data_r = $this->crud->getStrippedSaveRequest();
+        $data_r = $this->crud->getStrippedSaveRequest($request);
         $payment_categories = explode(',',\Config::get('settings.payment_categories'));
         if (in_array($request->get("category_id"), $payment_categories)) {
             if($request->receipt_no && ($request->amount != null && $request->amount != '')){
                 $data_r['payment_status'] = 'Received';
             }
         }
+       
         $item = $this->crud->update(
             $request->get($this->crud->model->getKeyName()),
             $data_r
         );
+       
         $this->data['entry'] = $this->crud->entry = $item;
 
         // show a success message
@@ -568,8 +492,7 @@ class VisitorCrudController extends CrudController
         } else {
             $page_url = url('admin/visitor');
         }
-        // $url = url("admin/visitor/" . $item->getKey() . "/print");
-        // return "<script type='text/javascript'>window.open( '$url' );window.location.replace('$page_url');</script>";
+         
         return "<script type='text/javascript'>window.location.replace('$page_url');</script>";
     }
 
@@ -579,8 +502,8 @@ class VisitorCrudController extends CrudController
 
         // execute the FormRequest authorization and validation, if one is required
         $request = $this->crud->validateRequest();
-
-        $data_r = $this->crud->getStrippedSaveRequest();
+        \DB::enableQueryLog();
+        $data_r = $this->crud->getStrippedSaveRequest($request);
         $payment_categories = explode(',',\Config::get('settings.payment_categories'));
         if (in_array($request->get("category_id"), $payment_categories)) {
             if($request->receipt_no && $request->amount){
@@ -588,7 +511,9 @@ class VisitorCrudController extends CrudController
             }
         }
         // insert item in the db
+       
         $item = $this->crud->create($data_r);
+    //  echo"<pre>";print_r (\DB::getQueryLog());exit;
         $this->data['entry'] = $this->crud->entry = $item;
 
         // show a success message

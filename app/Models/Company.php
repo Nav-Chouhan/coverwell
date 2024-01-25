@@ -20,7 +20,7 @@ class Company extends Model
 
     protected $table = 'companies';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+     public $timestamps = true;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
@@ -105,10 +105,12 @@ class Company extends Model
 
     public function getGstCertificateAttribute($value)
     {
+        
         $attribute_name = "gst_certificate";
         $disk = "public";
         $destination_path = "uploads/gst_certificate";
-        if (\Storage::disk($disk)->exists($this->getRawOriginal($attribute_name)))
+         
+        if ($this->getRawOriginal($attribute_name) && \Storage::disk($disk)->exists($this->getRawOriginal($attribute_name)))
             return $value;
         return null;
     }
