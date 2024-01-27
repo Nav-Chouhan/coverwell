@@ -49,13 +49,13 @@ class VisitorCategoryCrudController extends CrudController
                 'name' => 'name', // The db column name
                 'label' => "Name" // Table column heading
             ],
-          /*   [
+          [
                 'name' => "total_visitors",
                 'label' => "Total",
                 'type' => "model_function",
                 'function_name' => 'visitors',
                 'function_parameters' => [true],
-            ], */
+            ], 
             [
                 'name' => 'img', // The db column name
                 'label' => "Background", // Table column heading

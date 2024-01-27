@@ -53,4 +53,11 @@ class VisitorCategory extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+    public function visitors($count = false)
+    {
+        if ($count)
+            return $this->hasMany('App\Models\Visitor', 'category_id')->count();
+        else
+            return $this->hasMany('App\Models\Visitor', 'category_id');
+    }
 }

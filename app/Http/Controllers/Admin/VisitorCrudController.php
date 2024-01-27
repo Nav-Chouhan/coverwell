@@ -58,7 +58,9 @@ class VisitorCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-
+          
+         
+      
         $daysDetails = [
             '3' => [
                 '2023-07-06' => [
@@ -96,10 +98,10 @@ class VisitorCrudController extends CrudController
                 'type' => 'iframe',
             ],
         ];
-
+      
         CRUD::column('barcode');
         CRUD::column('name');
-        CRUD::column('photo')->type('image');
+        CRUD::column('photo')->type('image')->priority(1);
         CRUD::column('ticket_invite_code')->label('Invite');
         CRUD::column('contact');
         CRUD::column('company_barcode')->type('select')->label('Company')->entity('company')->attribute('name')->model(App\Models\Company::class);
@@ -107,8 +109,8 @@ class VisitorCrudController extends CrudController
         CRUD::column('hotel_id')->type('select')->label('Hotel')->entity('hotel')->attribute('name')->model(App\Models\Hotel::class); 
         CRUD::column('last_movement');
         CRUD::column('registered_on');
-        CRUD::column('src');
-
+        CRUD::column('src'); 
+ 
         if (!backpack_user()->hasRole('Admin')) {
             $this->crud->denyAccess(['delete', 'revise', 'export', 'import', 'bulkdelivery']);
         }
@@ -125,6 +127,7 @@ class VisitorCrudController extends CrudController
                 foreach (json_decode($values) as $key => $value) {
                     $category_ids[] = $value;
                 }
+              
                 $this->crud->addClause('whereIn', 'category_id', $category_ids);
             });
             $this->crud->addFilter([
@@ -362,7 +365,7 @@ class VisitorCrudController extends CrudController
                     return $error;
                 }
                 $visitor['entry'] = $visitor['visitor'];
-                return view("crud::operations.print", $visitor);
+                return view("backpack.theme-coreuiv2::operations.print", $visitor);
             }
             return "Invalid Credentials!!";
         }

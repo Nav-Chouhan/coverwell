@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('invites', function (Blueprint $table) {
             $table->id();
             $table->string("code")->unique();
-            $table->string("for")->unique();
+            $table->string("for")->unique()->nullable();
             $table->integer("max")->default(1);
             $table->integer("uses")->default(0);
             $table->timestamp("valid_until")->nullable();
-            $table->integer("category_id")->nullable(0);
+            $table->integer("category_id")->nullable(0)->nullable();
             $table->string("name",50)->nullable();
             $table->string("contact",10)->nullable();
             $table->timestamps();

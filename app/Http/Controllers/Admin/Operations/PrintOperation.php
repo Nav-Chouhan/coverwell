@@ -57,7 +57,7 @@ trait PrintOperation
         }
 
         if (
-            ($this->data['entry']->printed_on != null && $this->data['entry']->printed_on->diffInMinutes(Carbon::now()) > 10)
+            ($this->data['entry']->printed_on != null && \Carbon\Carbon::parse($this->data['entry']->printed_on)->diffInMinutes(Carbon::now()) > 10)
             && !backpack_user()->can('PrintDuplicate')
         ) {
             $this->crud->denyAccess(['delete', 'revise', 'export', 'import', 'bulkdelivery', 'print']);
@@ -70,7 +70,7 @@ trait PrintOperation
         $this->data['title'] = $this->crud->getTitle() ?? 'print ' . $this->crud->entity_name;
 
         if (
-            ($this->data['entry']->printed_on != null && $this->data['entry']->printed_on->diffInMinutes(Carbon::now()) > 10)
+            ($this->data['entry']->printed_on != null && \Carbon\Carbon::parse($this->data['entry']->printed_on)->diffInMinutes(Carbon::now()) > 10)
         ) {
             $count = $this->data['entry']->print_count();
             $replaced = Str::replaceLast('-D'.$count,'',$this->data['entry']->barcode);
@@ -82,6 +82,6 @@ trait PrintOperation
         $this->data['entry']->verified_on = Carbon::now();
         $this->data['entry']->save();
         // load the view
-        return view("crud::operations.print", $this->data);
+        return view("backpack.theme-coreuiv2::operations.print", $this->data);
     }
 }

@@ -140,7 +140,7 @@ class InviteCrudController extends CrudController
         $invites = $code->make();
 
         
-        $item = $this->crud->update($invites[0]->id,$this->crud->getStrippedSaveRequest());
+        $item = $this->crud->update($invites[0]->id,$this->crud->getStrippedSaveRequest($request));
 
 
         \Alert::success(trans('backpack::crud.insert_success'))->flash();

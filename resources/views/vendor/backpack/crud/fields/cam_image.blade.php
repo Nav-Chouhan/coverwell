@@ -123,7 +123,8 @@
         <script src="{{ asset('packages/cropperjs/dist/cropper.min.js') }}"></script>
         <script src="{{ asset('packages/jquery-cropper/dist/jquery-cropper.min.js') }}"></script>
         <script src="{{ asset('js/webcam.min.js') }}"></script>
-
+        
+         
         <script>
             function bpFieldInitBase64CropperImageElement(element) {
                     // Find DOM elements under this form-group element

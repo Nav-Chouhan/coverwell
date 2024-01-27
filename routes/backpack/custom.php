@@ -17,6 +17,14 @@ Route::group([
     'namespace' => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
 
+    Route::get('charts/users', 'Charts\LatestUsersChartController@response');
+    Route::get('charts/new-entries', 'Charts\NewEntriesChartController@response');
+
+    Route::get('charts/registered', 'Charts\RegisteredVisitorsChartController@response');
+    Route::get('charts/printed', 'Charts\PrintedVisitorsChartController@response');
+    Route::get('charts/inside', 'Charts\InsideVisitorsChartController@response');
+    Route::get('charts/footfall', 'Charts\FootfallVisitorsChartController@response');
+
     Route::crud('visitor', 'VisitorCrudController');
     Route::get('visitor/scan', 'VisitorCrudController@scanVisitor');
     Route::get('visitor/{barcode}/scan', 'VisitorCrudController@scan');
