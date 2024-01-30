@@ -29,6 +29,7 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "laravel/ui": "^4.4",
         "milon/barcode": "^10.0",
         "rap2hpoutre/fast-excel": "^5.3",
         "spatie/laravel-activitylog": "^4.7"

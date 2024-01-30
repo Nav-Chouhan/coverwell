@@ -41,4 +41,5 @@ Route::get('/check-already-hosted', [App\Http\Controllers\RegisterController::cl
 Route::post('/store', [App\Http\Controllers\RegisterController::class, 'store'])->name('visitor.store');
 Route::get('/open-chb/{id}', [App\Http\Controllers\RegisterController::class, 'openChb'])->name('openChb');
 Route::get('{page}/{subs?}', ['uses' => 'App\Http\Controllers\PageController@index'])->where(['page' => '^(((?=(?!admin))(?=(?!\/)).))*$', 'subs' => '.*']);
-Route::get('/send-email', [EmailController::class, 'index']);
+Route::get('/send-email', [App\Http\Controllers\EmailController::class, 'index']);
+ Auth::routes();
