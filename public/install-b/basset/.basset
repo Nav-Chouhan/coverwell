@@ -1,0 +1,14 @@
+{
+    "vendor/backpack/crud/src/resources/assets/css/common.css": "/vendor/backpack/crud/src/resources/assets/css/common.css",
+    "vendor/backpack/crud/src/resources/assets/img/spinner.svg": "/vendor/backpack/crud/src/resources/assets/img/spinner.svg",
+    "vendor/backpack/crud/src/resources/assets/js/common.js": "/vendor/backpack/crud/src/resources/assets/js/common.js",
+    "vendor/backpack/theme-coreuiv2/resources/assets/css/coreuiv2.css": "/vendor/backpack/theme-coreuiv2/resources/assets/css/coreuiv2.css",
+    "vendor/backpack/theme-coreuiv2/resources/assets/css/source-sans-pro.css": "/vendor/backpack/theme-coreuiv2/resources/assets/css/source-sans-pro.css",
+    "vendor/backpack/theme-coreuiv2/resources/assets/fonts/source-sans-3.052R.tar.gz": "/1",
+    "vendor/backpack/theme-coreuiv4/resources/assets/css/coreui4.css": "/vendor/backpack/theme-coreuiv4/resources/assets/css/coreui4.css",
+    "vendor/backpack/theme-tabler/resources/assets/css/color-adjustments.css": "/vendor/backpack/theme-tabler/resources/assets/css/color-adjustments.css",
+    "vendor/backpack/theme-tabler/resources/assets/css/colors.css": "/vendor/backpack/theme-tabler/resources/assets/css/colors.css",
+    "vendor/backpack/theme-tabler/resources/assets/css/style.css": "/vendor/backpack/theme-tabler/resources/assets/css/style.css",
+    "vendor/backpack/theme-tabler/resources/assets/js/tabler.js": "/vendor/backpack/theme-tabler/resources/assets/js/tabler.js",
+    "vendor/studio-42/elfinder/sounds/rm.wav": "/vendor/studio-42/elfinder/sounds/rm.wav"
+}
