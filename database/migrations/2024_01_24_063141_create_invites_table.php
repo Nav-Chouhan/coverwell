@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('invites', function (Blueprint $table) {
+       /*  Schema::create('invites', function (Blueprint $table) {
             $table->id();
             $table->string("code")->unique();
             $table->string("for")->unique()->nullable();
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string("name",50)->nullable();
             $table->string("contact",10)->nullable();
             $table->timestamps();
-        });
+        }); */
     }
 
     /**

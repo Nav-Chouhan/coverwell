@@ -30,10 +30,10 @@ Route::post('/hospitality-login', [App\Http\Controllers\CustomAuthController::cl
 // Route::get('/jas-login', [App\Http\Controllers\CustomAuthController::class, 'jasLoginFrm'])->name('jasLogin');
 // Route::post('/jas-login', [App\Http\Controllers\CustomAuthController::class, 'jasLogin'])->name('jas-login');
 Route::post('/update-car-info', [App\Http\Controllers\DashboardController::class, 'updateCarInfo'])->name('update-car-info');
-Route::post('/update-room-info', [App\Http\Controllers\DashboardController::class, 'updateRoomInfo'])->name('update-car-info');
+Route::post('/update-room-info', [App\Http\Controllers\DashboardController::class, 'updateRoomInfo'])->name('update-room-info');
 Route::get('/search-visitor', [App\Http\Controllers\DashboardController::class, 'searchVisitor'])->name('search-visitor'); 
 Route::get('signout', [App\Http\Controllers\CustomAuthController::class, 'signOut'])->name('signout');
-Route::get('/check-already-hosted', [App\Http\Controllers\RegisterController::class, 'checkHosted'])->name('home');
+Route::get('/check-already-hosted', [App\Http\Controllers\RegisterController::class, 'checkHosted']);
 // Route::get('/registration/{id}', [App\Http\Controllers\RegisterController::class, 'index'])->name('registration');
 // Route::get('/hosted-by/{buyer_id}', [App\Http\Controllers\RegisterController::class, 'index'])->name('registration');
 // Route::get('/{nri}/registration', [App\Http\Controllers\RegisterController::class, 'registration'])->name('registrationFrm');
